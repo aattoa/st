@@ -186,30 +186,23 @@ static MouseShortcut mshortcuts[] = {
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
-#define WINKEY Mod4Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ WINKEY,               XK_k,           kscrollup,      {.i =  3} },
-	{ WINKEY,               XK_j,           kscrolldown,    {.i =  3} },
-	{ WINKEY|MODKEY,        XK_k,           kscrollup,      {.i = 30} },
-	{ WINKEY|MODKEY,        XK_j,           kscrolldown,    {.i = 30} },
+	{ TERMMOD,              XK_K,           kscrollup,      {.i =  3} },
+	{ TERMMOD,              XK_J,           kscrolldown,    {.i =  3} },
+	{ ShiftMask,            XK_Prior,       kscrollup,      {.i = 30} },
+	{ ShiftMask,            XK_Next,        kscrolldown,    {.i = 30} },
 };
-
-#undef WINKEY
 
 /*
  * Special keys (change & recompile st.info accordingly)
